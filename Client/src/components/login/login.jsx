@@ -15,11 +15,9 @@ const Login = () => {
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ email, password }),
 	  });
-	//   console.log(response);
-	  const data = await response.json();
-	  response.send(data);
-	  setEmail(data);
-	  setPassword(data);
+	  console.log(response);
+	  if(response.status === 200)
+	  	alert('Login successful')
 	  // Redirect to protected route
 	};
 
@@ -69,7 +67,7 @@ const Login = () => {
 			<div className="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Enter your personal details and start journey with us</p>
-				{/* <button href='/signup' className="ghost" id="signUp">Sign Up</button> */}
+				<button className="ghost" id="signUp" onClick={(e) => {console.log(e.target)}}>Sign Up</button>
 			</div>
 		</div>
 	</div>
